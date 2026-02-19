@@ -36,3 +36,24 @@ if chosen_task == "1":
         print("Password is approved!")
     else:
         print("Password must contain letters, digits, a special symbol and at least 8 characters!")
+
+elif chosen_task == "2":
+    first_side = input("Enter first side of a triangle: ")
+    second_side = input("Enter second side of a triangle: ")
+    third_side = input("Enter third side of a triangle: ")
+    if first_side.isdigit() and second_side.isdigit() and third_side.isdigit():
+        first_side = int(first_side)
+        second_side = int(second_side)
+        third_side = int(third_side)
+        if first_side + second_side > third_side and first_side + third_side > second_side and second_side + third_side > first_side:
+            print("Triangle exists!")
+            if first_side == third_side == second_side:
+                print("Triangle is equilateral!")
+            elif first_side == second_side or first_side == third_side or second_side == third_side:
+                print("Triangle is equiangular!")
+            else:
+                print("Triangle is scalene!")
+        else:
+            print("Triangle does not exist!")
+    else:
+        print("Enter only integer numbers!")
