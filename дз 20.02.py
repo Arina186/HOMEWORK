@@ -128,3 +128,26 @@ while is_continue:
             else:
                 print(f"Число {digit} не найдено в списке")
             print(sep="\n")
+
+    elif user_choice == '7':
+        from random import randint
+        rows_number = int(input("Enter rows number: "))
+        columns_number = int(input("Enter columns number: "))
+        if rows_number != columns_number:
+            print("Только квадратные матрицы!")
+        else:
+           matrix = []
+           for r_num in range(0, rows_number):
+              empty_row = []
+              matrix.append(empty_row)
+              for c_num in range(0, columns_number):
+                  elem = randint(0, 100)
+                  matrix[r_num].append(elem)
+              print(matrix[r_num])
+           secondary_sum = 0
+           for r_num in range(0, rows_number):
+              formula = columns_number - 1 - r_num
+              secondary_sum += matrix[r_num][formula]
+           print(f"Sum of a secondary diagonal is: {secondary_sum}")
+           print(sep="\n")
+
