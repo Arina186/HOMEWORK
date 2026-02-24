@@ -57,3 +57,4 @@ elif chosen_task == "2":
             print("Triangle does not exist!")
     else:
         print("Enter only integer numbers!")
+
