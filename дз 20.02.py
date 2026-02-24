@@ -151,3 +151,17 @@ while is_continue:
            print(f"Sum of a secondary diagonal is: {secondary_sum}")
            print(sep="\n")
 
+    elif user_choice == '8':
+        string = "спаспачвЕНЁнпгртроыуыу"
+        vowels = "аеёиоуыэяАЕЁИОУЫЭЯ"
+        consonants = "бвгджзйклмнпрстфхцчшщБВГДЖЗЙКЛМНПРСТФХЦЧШЩ"
+        vowels_count = 0
+        consonants_count = 0
+        for char in string:
+            if char in vowels:
+                vowels_count +=1
+            elif char in consonants:
+                consonants_count +=1
+        print(f"Количество гласных: {vowels_count}")
+        print(f"Количество согласных: {consonants_count}")
+        print(sep="\n")
