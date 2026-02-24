@@ -23,10 +23,10 @@ while is_continue:
             savings = 0
             days = 0
             while savings < n:
-                days += 1 #наступил новый день
+                days += 1  # наступил новый день
                 # #проверить не воскресенье ли сегодня, каждый 7-й день (7, 14, 21, 28) - это вс
                 if days % 7 == 0:
-                # в вс она тратит, не копит=не прибавляем деньги, пропускаем
+                    # в вс она тратит, не копит=не прибавляем деньги, пропускаем
                     pass
                 else:
                     savings += k
@@ -39,12 +39,12 @@ while is_continue:
         numbers = input("Сколько чисел Фибоначчи вывести? ")
         if numbers.isdigit():
             numbers = int(numbers)
-            a = 1 # Первое число
-            b = 1 # Второе число
+            a = 1  # Первое число
+            b = 1  # Второе число
             count = 0
             print("Последовательность: ", end=" ")
             while count < numbers:
-                print(a, end=" ") # end чтобы числа выводились в одну строку
+                print(a, end=" ")  # end чтобы числа выводились в одну строку
                 a, b = b, a + b
                 count += 1
         print(sep="\n")
@@ -57,3 +57,24 @@ while is_continue:
         print(f"Сумма: {total_sum}")
         print(f"Минимум: {min_value}")
         print(f"Максимум: {max_value}")
+        print(sep="\n")
+    elif user_choice == '4':
+        digits = [4, 5, 56, 34, 3, 1, 2, 5, 4, 67, 98, 66, 33, 44, 33, 4, 1, 90]
+        if len(digits) == len(set(digits)): # set(digits) уберет дубликаты. если длины не равны, значит есть дубликаты
+            print("Все числа в списке уникальны")
+        else:
+            print("В списке есть повторяющиеся элементы")
+            counts = {} # создается пустой словарь, чтобы хранить какое число скока раз встретилось
+            for dig in digits:
+                if dig in counts:
+                    counts[dig] += 1 # если число уже встречалось
+                else:
+                    counts[dig] = 1 # если число встр впервые
+            print("Повторяющиеся элементы: ")
+            for dig, count in counts.items():
+                if count > 1:
+                    print(f"Число {dig} встречается {count} раза")
+            print(sep="\n")
+
+
+
