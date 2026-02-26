@@ -19,8 +19,8 @@ while is_continue:
                 print("Введите целое число!")
 
 
-    user_choice = input("Enter action number: ")
-    if user_choice == '1':
+    user_choice = get_int_input("Enter action number: ")
+    if user_choice == 1:
         from random import randint
 
 
@@ -46,8 +46,7 @@ while is_continue:
         print(f" \nВаша матрица:")
         show_matrix(result)
 
-    user_choice = input("Enter action number: ")
-    if user_choice == '2':
+    elif user_choice == 2:
         from random import randint
 
 
@@ -104,3 +103,51 @@ while is_continue:
         max_value, max_index = max_value_matrix(result)
         print(f"Минимальное значение матрицы: {min_value}, индекс: {min_index}")
         print(f"Максимальное значение матрицы: {max_value}, индекс: {max_index}")
+
+    elif user_choice == 3:
+        from random import randint
+
+
+        def generate_random_matrix(rows_count, columns_count):
+            matrix = []
+            for row in range(0, rows_count):
+                matrix.append([])
+                for col in range(0, columns_count):
+                    matrix[row].append(randint(0, 50))
+
+            return matrix
+
+
+        def show_matrix(matrix):
+            for row in matrix:
+                print(row)
+
+            return matrix
+
+        #  сумма всех элементов и #какую долю(процент) в общей сумме составляет сумма элементов кажд столбцакакую долю(процент) в общей сумме составляет сумма элементов кажд столбца
+        def sum_and_proportion_matrix(matrix):
+            summa = 0
+            rows = len(matrix)
+            columns = len(matrix[0])
+            for row in matrix:
+                for item in row:
+                    summa += item
+
+            share = []
+            for j in range(columns):
+                column_sum = 0
+                for i in range(rows):
+                    column_sum += matrix[i][j]
+                share.append((column_sum/summa)*100)
+                #через равно на каждой итерации цикла старое значение будет стираться
+
+            return summa, share
+
+
+        rows_number = get_int_input("Enter rows number: ")
+        columns_number = get_int_input("Enter columns number: ")
+        result = generate_random_matrix(rows_number, columns_number)
+        print(f" \nВаша матрица:")
+        show_matrix(result)
+        summ, share = sum_and_proportion_matrix(result)
+        print(f"Сумма элементов матрицы: {summ}, доля: {share}")
