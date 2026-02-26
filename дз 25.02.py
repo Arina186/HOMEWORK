@@ -47,7 +47,7 @@ while is_continue:
         show_matrix(result)
 
     user_choice = get_int_input("Enter action number: ")
-    if user_choice == '2':
+    elif user_choice == '2':
         from random import randint
 
 
