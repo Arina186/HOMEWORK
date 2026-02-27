@@ -290,3 +290,51 @@ while is_continue:
         yes, no = col_have_digit(result, h_digit)
         print(f"Столбцы с числом H:{yes} ")
         print(f"Столбцы без числа H:{no}")
+
+    elif user_choice == 7:
+        from random import randint
+
+
+        def generate_random_matrix(rows_count, columns_count):
+            matrix = []
+            for row in range(0, rows_count):
+                matrix.append([])
+                for col in range(0, columns_count):
+                    matrix[row].append(randint(0, 1))
+
+            return matrix
+
+
+        def show_matrix(matrix):
+            for row in matrix:
+                print(row)
+
+            return matrix
+
+
+        def additional_column(matrix):
+            for row in matrix:
+                addition = sum(row)
+                if addition % 2 == 0:
+                    row.append(0)
+                else:
+                    row.append(1)
+            return matrix
+
+
+        rows_number = get_int_input("Enter rows number: ")
+        columns_number = get_int_input("Enter columns number: ")
+
+        result = generate_random_matrix(rows_number, columns_number)
+        print(f" \nВаша матрица:")
+        show_matrix(result)
+        ones = additional_column(result)
+        print("Матрица, сумма каждой строки которой четная: ")
+        show_matrix(ones)
+
+    elif user_choice == 8:
+        print("До свидания!")
+        is_continue = False
+
+
+
