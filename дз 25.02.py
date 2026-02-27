@@ -178,7 +178,7 @@ while is_continue:
             columns = len(matrix[0])
 
             for i in range(rows):
-                multiplier = matrix[i][special_column]
+                multiplier = matrix[i][special_column-1]
                 for j in range(columns):
                     matrix[i][j] *= multiplier
 
@@ -187,10 +187,56 @@ while is_continue:
 
         rows_number = get_int_input("Enter rows number: ")
         columns_number = get_int_input("Enter columns number: ")
-        special_column = get_int_input("Enter any of the columns(0,1,2): ")
+        special_column = get_int_input("Enter any of the columns: ")
         result = generate_random_matrix(rows_number, columns_number)
         print(f" \nВаша матрица:")
         show_matrix(result)
         multip = multiplication_col_k(result,special_column)
         print("Результат перемножения k столбца на все столбцы: ")
         show_matrix(multip)
+
+    elif user_choice == 5:
+        from random import randint
+
+
+        def generate_random_matrix(rows_count, columns_count):
+            matrix = []
+            for row in range(0, rows_count):
+                matrix.append([])
+                for col in range(0, columns_count):
+                    matrix[row].append(randint(0, 50))
+
+            return matrix
+
+
+        def show_matrix(matrix):
+            for row in matrix:
+                print(row)
+
+            return matrix
+
+
+        def addition_row_l(matrix, special_row):
+            rows = len(matrix)
+            columns = len(matrix[0])
+            target_row = matrix[special_row-1]
+
+            new_matrix = []
+            for i in range(rows):
+                new_row = []
+                for j in range(columns):
+                    new_row.append(matrix[i][j] + target_row[j])
+                new_matrix.append(new_row)
+
+            return new_matrix
+
+
+        rows_number = get_int_input("Enter rows number: ")
+        columns_number = get_int_input("Enter columns number: ")
+        special_row = get_int_input("Enter any of the rows: ")
+        result = generate_random_matrix(rows_number, columns_number)
+        print(f" \nВаша матрица:")
+        show_matrix(result)
+        new_matrix = addition_row_l(result, special_row)
+        print("Результат сложения L строки с каждой строкой: ")
+        show_matrix(new_matrix)
