@@ -195,7 +195,7 @@ while is_continue:
             for i in range(1, number + 1):
                 summa = 0
                 for j in range(1, i):  # проверяет все числа которые меньше текущего i
-                    if i % j == 0: # ищем делители
+                    if i % j == 0:  # ищем делители
                         summa += j
                 if summa == i:
                     print(f"Число {i} - совершенное")
@@ -207,10 +207,10 @@ while is_continue:
         number = input("Введите число N: ")
         if number.isdigit():
             number = int(number)
-            power =len(str(number))
+            power = len(str(number))
             summa = 0
-            for digit in str(number):  #str(number) превратит число 153 в '1', '5', '3'
-                summa += int(digit)**power
+            for digit in str(number):  # str(number) превратит число 153 в '1', '5', '3'
+                summa += int(digit) ** power
             if summa == number:
                 print(f"Число {number} - число Армстронга")
             else:
@@ -221,15 +221,17 @@ while is_continue:
         number = input("Введите число: ")
         if number.isdigit():
             number = int(number)
-            original_number = number #чтобы вывести в консоле изначально введенное число, а не преобразованную единицу
+            original_number = number  # чтобы вывести в консоле изначально введенное число, а не преобразованную единицу
             steps = 0
             while number != 1:
                 if number % 2 == 0:
                     number //= 2
                     steps += 1
                 else:
-                    number = number*3+1
+                    number = number * 3 + 1
                     steps += 1
             print(f"Для числа {original_number} нужно {steps} шагов, чтобы получить 1")
 
-
+    elif user_choice == '13':
+        print("До свидания!")
+        is_continue = False
