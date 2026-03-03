@@ -83,6 +83,28 @@ while is_continue:
         else:
             print(f"Number {num} is not a prime number.")
 
+    elif user_choice == 4:
+        def gcd(number_one, number_two):
+            while number_two:
+                number_one, number_two = number_two, number_one%number_two
+            return number_one
+            #  a = 15, b = 10.
+        #Проверяем while b (10 — это не ноль, заходим в цикл).
+        #Считаем остаток: 15 % 10 = 5.
+        #переменные меняются: a становится равным b (10), а b становится равным остатку (5).
+        # Проверяем while b (5 — это не ноль).
+        # Считаем остаток: 10 % 5 = 0 и т д
+
+        number_one = get_int_input("Enter the first number: ")
+        number_two = get_int_input("Enter the second number: ")
+        result = gcd(number_one, number_two)
+        print(f"GCD of your numbers is: {result}")
+
+
+
+
+
+
 
 
 
