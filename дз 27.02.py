@@ -38,7 +38,6 @@ while is_continue:
                 return binary_search(numbers, mid + 1, right, goal)
 
 
-
         numbers = [1, 5, 7, 16, 23, 28, 31, 38, 42]
         print("List of numbers: ", numbers)
         goal = get_int_input("Enter the number from the list to be depicted: ")
@@ -59,6 +58,37 @@ while is_continue:
         number = get_int_input("Enter a decimal number: ")
         result = from_decimal_to_binary(number)
         print(f"Your number {number} from decimal to binary system: {result}")
+
+    elif user_choice == 3:
+        import math
+        def prime_number(num):
+            if num <= 1:
+                return False
+            if num == 2:
+                return True
+            if num % 2 == 0:
+                return False
+            limit = int(math.sqrt(num)) + 1
+            for i in range(3, limit, 2):  #означает: «начни с 3, иди до лимита с шагом 2».
+    #То есть мы проверяем делители: 3, 5, 7, 9, 11...
+    # четные не проверяем, потому что в самом начале функции мы уже проверили число на четность
+                if num % i == 0:
+                    return False
+            return True
+
+
+        num = get_int_input("Enter a number: ")
+        if prime_number(num):
+            print(f"Number {num} is a prime number!")
+        else:
+            print(f"Number {num} is not a prime number.")
+
+
+
+
+
+
+
 
 
 
