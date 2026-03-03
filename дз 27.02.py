@@ -196,11 +196,42 @@ while is_continue:
                     count += 1  # символ такой же, как прошлый
                 else:
                     result += text[i - 1] + str(count)  # символ изменился - записываем прошлый и его число
-                    count = 1 # сброс счетчика для след символа
+                    count = 1  # сброс счетчика для след символа
             result += text[-1] + str(count)  # для последнего символа
             return result
+
 
         text = input("Enter your message: ")
         res = contract_text(text)
         print(f" Your initial text: {text}. \n Contracted text: {res} ")
 
+    elif user_choice == 8:
+        import string
+
+        def is_spam(text):
+            bad_words = ["sale", "free", "discount", "win", "winner", "only today", "last chance"]
+            words = text.split()
+            bad_count = 0
+            has_caps = False
+
+            punctuation = string.punctuation
+
+            for word in words:
+                clean_word = word.strip(punctuation)  # очищаем слово от знаков по краям
+                if not clean_word:
+                    continue
+
+                if clean_word.isupper() and len(clean_word) > 1:
+                    has_caps = True
+
+                if clean_word.lower() in bad_words:
+                    bad_count += 1
+            return bad_count > 3 or has_caps
+
+
+        text = input("Enter your email message: ")
+        result = is_spam(text)
+        if result:
+            print(f"This is spam!")
+        else:
+            print(f"This message is clean!")
