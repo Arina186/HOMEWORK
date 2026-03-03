@@ -143,10 +143,10 @@ while is_continue:
 
         def vigenere_encryption(text, key):
             result = ""
-            key_index = 0   # какую букву ключа мы сейчас используем
+            key_index = 0  # какую букву ключа мы сейчас используем
             for char in text.lower():
                 if char in letters:
-                    char_index = letters.find(char) # Находим индекс (с 0) буквы текста в алфавите
+                    char_index = letters.find(char)  # Находим индекс (с 0) буквы текста в алфавите
                     current_key_char = key[key_index % len(key)].lower()
                     # Находим индекс буквы ключа, % len(key) заставляет ключ повторяться по кругу
                     shift = letters.find(current_key_char)
@@ -184,3 +184,23 @@ while is_continue:
             print(f"Decrypted message : {decrypt(text, key_word)}")
         else:
             print(f"Invalid input. Try again!")
+
+    elif user_choice == 7:
+        def contract_text(text):
+            if not text:
+                return ""
+            result = ""
+            count = 1
+            for i in range(1, len(text)):
+                if text[i] == text[i - 1]:
+                    count += 1  # символ такой же, как прошлый
+                else:
+                    result += text[i - 1] + str(count)  # символ изменился - записываем прошлый и его число
+                    count = 1 # сброс счетчика для след символа
+            result += text[-1] + str(count)  # для последнего символа
+            return result
+
+        text = input("Enter your message: ")
+        res = contract_text(text)
+        print(f" Your initial text: {text}. \n Contracted text: {res} ")
+
