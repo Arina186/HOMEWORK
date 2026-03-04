@@ -208,6 +208,7 @@ while is_continue:
     elif user_choice == 8:
         import string
 
+
         def is_spam(text):
             bad_words = ["sale", "free", "discount", "win", "winner", "only today", "last chance"]
             words = text.split()
@@ -235,3 +236,26 @@ while is_continue:
             print(f"This is spam!")
         else:
             print(f"This message is clean!")
+
+    elif user_choice == 9:
+        import random
+        import string
+
+
+        def genetic_algorithm(target):
+            alphabet = string.ascii_letters + " "
+            # выбери случ букву столько раз какова длина цели и сложи в список
+            current = [random.choice(alphabet) for steps in range(len(target))]
+            steps = 0
+            while "".join(current) != target:
+                steps += 1
+                for i in range(len(target)):
+                    if current[i] != target[i]:
+                        current[i] = random.choice(alphabet)
+                print(f"Steps {steps}: {''.join(current)}")
+            return steps
+
+
+        target = input("Enter your target message: ")
+        total_steps = genetic_algorithm(target)
+        print(f" Total steps: {total_steps} ")
