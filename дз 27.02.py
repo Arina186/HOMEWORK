@@ -282,3 +282,21 @@ while is_continue:
         text = input("Enter your text message: ")
         result = transliterate(text)
         print(f" Your transliterated text: {result} ")
+
+    elif user_choice == 11:
+        def peak_points(user_input):
+            list = [int(x) for x in user_input.split()]
+            result = []
+            if len(list) >= 2:
+                list.sort()
+                result = list[-2:]
+            return result
+
+
+        user_input = input("Enter numbers: ")
+        result = peak_points(user_input)
+        print(f"Peaks: {result}")
+
+    elif user_choice == 12:
+        print("До свидания!")
+        is_continue = False
