@@ -29,3 +29,10 @@ while is_continue:
         sequence_two = [-10, -6, 7, 4, 2, -4, 7, 1, -15, -18, 17, 62]
         print(list(filter(lambda x: x > 0, sequence_two)))
 
+    elif user_choice == 3:
+        def is_palindrome(word):
+            s = word.lower().replace(" ", "")
+            return s == s[::-1]
+
+    word = ["abccba", "hsdhee", "level", "fjkroeolel", "radar", "fjfkkk", "civic", "madam", "hffhfhfh"]
+    print(list(filter(is_palindrome, word)))
