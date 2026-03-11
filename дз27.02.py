@@ -1,5 +1,3 @@
-from wsgiref.util import shift_path_info
-
 is_continue = True
 while is_continue:
     print(" 1 - Рекурсия. Бинарный поиск\n"
