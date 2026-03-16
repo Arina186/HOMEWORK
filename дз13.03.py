@@ -88,7 +88,7 @@ input_path = os.path.join("txts", "forbidden_words.txt")
 try:
     with open(input_path, "r", encoding="utf-8") as file:
         forbidden_words = file.read().lower().split()
-    file_name = input("Введите название файла(another_text.txt): ")
+    file_name = input("Enter the filename(another_text.txt): ")
     target = os.path.join("txts", file_name)
     with open(target, "r", encoding="utf-8") as file:
         text = file.read()
@@ -106,5 +106,38 @@ try:
     print(f"Result: {text}")
 except FileNotFoundError:
     print("File was not found")
+except Exception as e:
+    print(f"Error: {e}")
+
+# task 5
+input_path = os.path.join("txts", "student_grades.txt")
+try:
+    with open(input_path, "r", encoding="utf-8") as file:
+        for line in file:
+            data = line.split()
+            if len(data) == 3 and data[2] < "3":
+                print(f"Student {data[0]} {data[1]} got {data[2]}")
+except Exception as e:
+    print(f"Error: {e}")
+
+# task 6
+input_path = os.path.join("txts", "another_text.txt")
+result = 0
+current_num = ""
+try:
+    with (open(input_path, "r", encoding="utf-8") as file):
+        text = file.read()
+        for char in text:
+            if char.isdigit():
+                current_num += char
+            else:
+                if current_num:
+                    result += int(current_num)  # Как только попадается НЕ цифра, превращаем накопленную строку в число
+                    # и добавляем его в общую сумму
+                    current_num = ""  # очищаем буфер, чтобы следующее число не приклеилось к предыдущему
+        if current_num:  # Проверка, если файл заканчивается числом
+            result += int(current_num)
+
+        print(f"Total sum: {result}")
 except Exception as e:
     print(f"Error: {e}")
