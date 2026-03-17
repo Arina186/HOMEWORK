@@ -141,3 +141,47 @@ try:
         print(f"Total sum: {result}")
 except Exception as e:
     print(f"Error: {e}")
+
+# task 7
+import string
+
+
+def caesar_encyption(text, shift):
+    encrypted_message = ""
+    for char in text:
+        if char.isalpha():
+            is_russian = "а" <= char.lower() <= "я" or char.lower() == 'ё'
+            if is_russian:
+                alphabet_size = 33
+                ru_alphabet = "абвгждеёзийклмнопрстуфхцчшщъыьэюя"
+                if char.isupper():
+                    ru_alphabet = ru_alphabet.upper()
+                indx = ru_alphabet.find(char)
+                encrypted_message += ru_alphabet[(indx + shift) % 33]
+            else:
+                alphabet_size = 26
+                start = ord("A") if char.isupper() else ord("a")
+                shifted_char = chr((ord(char) - start + shift) % alphabet_size + start)
+                encrypted_message += shifted_char
+        else:
+            encrypted_message += char  # Символы и пробелы оставляем как есть
+    return encrypted_message
+
+
+if not os.path.exists("txts"):
+    os.makedirs("txts")
+
+input_path = os.path.join("txts", "for_caesar.txt")
+output_path = os.path.join("txts", "final_caesar.txt")
+try:
+    with (open(input_path, "r", encoding="utf-8") as file):
+        lines = file.readlines()
+    with (open(output_path, "w", encoding="utf-8")) as file:
+        for index, line in enumerate(lines, start=1):
+            encrypted_line = caesar_encyption(line, index)  # Шаг шифра равен номеру строки (index)
+            file.write(encrypted_line)
+    print("Шифрование завершено успешно!")
+except FileNotFoundError:
+    print(f"Ошибка: Файл {input_path} не найден.")
+except Exception as e:
+    print(f"Error: {e}")
