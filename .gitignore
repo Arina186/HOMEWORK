@@ -1,0 +1,10 @@
+.env
+__pycache__/
+csvs/
+jpgs/
+jsons/
+txts/
+webps/
+*.mp3
+*.ogg
+*.wav

@@ -1,0 +1,224 @@
+[
+  {
+    "level": "A1",
+    "question": "___ you like chocolate?",
+    "options": ["Does", "Do", "Are", "Is"],
+    "correct_id": 1
+  },
+  {
+    "level": "A1",
+    "question": "There ___ some milk in the fridge.",
+    "options": ["is", "are", "am", "be"],
+    "correct_id": 0
+  },
+  {
+    "level": "A1",
+    "question": "Whose bag is this? It's ___.",
+    "options": ["my", "mine", "me", "I"],
+    "correct_id": 1
+  },
+  {
+    "level": "B1",
+    "question": "I've been working here ___ three years.",
+    "options": ["since", "during", "for", "ago"],
+    "correct_id": 2
+  },
+  {
+    "level": "B1",
+    "question": "You ___ wash the dishes. I'll do it later.",
+    "options": ["mustn't", "can't", "don't have to", "couldn't"],
+    "correct_id": 2
+  },
+  {
+    "level": "B1",
+    "question": "If I ___ more money, I would buy a car.",
+    "options": ["have", "had", "would have", "will have"],
+    "correct_id": 1
+  },
+  {
+    "level": "B2",
+    "question": "He denied ___ the window.",
+    "options": ["to break", "breaking", "break", "broken"],
+    "correct_id": 1
+  },
+  {
+    "level": "B2",
+    "question": "By the time we arrived, the film ___.",
+    "options": ["started", "has started", "had started", "was starting"],
+    "correct_id": 2
+  },
+  {
+    "level": "B2",
+    "question": "I wish I ___ so much cake yesterday.",
+    "options": ["didn't eat", "hadn't eaten", "haven't eaten", "don't eat"],
+    "correct_id": 1
+  },
+  {
+    "level": "C1",
+    "question": "Hardly ___ entered the room when the phone rang.",
+    "options": ["had I", "I had", "did I", "I did"],
+    "correct_id": 0
+  },
+  {
+    "level": "C1",
+    "question": "It's high time you ___ a job!",
+    "options": ["find", "found", "to find", "had found"],
+    "correct_id": 1
+  },
+  {
+    "level": "C1",
+    "question": "I'd rather you ___ smoke in here.",
+    "options": ["don't", "not", "didn't", "won't"],
+    "correct_id": 2
+  },
+  {
+    "level": "B1",
+    "question": "I need to ___ up a new hobby.",
+    "options": ["get", "take", "go", "make"],
+    "correct_id": 1
+  },
+  {
+    "level": "B1",
+    "question": "Can you ___ the music down? It's too loud.",
+    "options": ["turn", "put", "take", "shut"],
+    "correct_id": 0
+  },
+  {
+    "level": "B2",
+    "question": "We had to ___ off the meeting until next week.",
+    "options": ["set", "call", "put", "get"],
+    "correct_id": 2
+  },
+  {
+    "level": "B2",
+    "question": "I accidentally ___ into an old friend yesterday.",
+    "options": ["ran", "hit", "walked", "fell"],
+    "correct_id": 0
+  },
+  {
+    "level": "B2",
+    "question": "The plane took ___ on time despite the fog.",
+    "options": ["up", "away", "off", "out"],
+    "correct_id": 2
+  },
+  {
+    "level": "C1",
+    "question": "It's difficult to ___ out what he's saying with that accent.",
+    "options": ["make", "take", "find", "see"],
+    "correct_id": 0
+  },
+  {
+    "level": "C1",
+    "question": "The detective finally ___ down the criminal.",
+    "options": ["tracked", "followed", "caught", "found"],
+    "correct_id": 0
+  },
+  {
+    "level": "C1",
+    "question": "The company's profits have ___ expectations this year.",
+    "options": ["surpassed", "overtaken", "won", "passed"],
+    "correct_id": 0
+  },
+  {
+    "level": "B2",
+    "question": "I don't really get ___ with my new neighbors.",
+    "options": ["on", "along", "away", "by"],
+    "correct_id": 1
+  },
+  {
+    "level": "C1",
+    "question": "He has a tendency to ___ the truth.",
+    "options": ["expand", "embellish", "inflate", "widen"],
+    "correct_id": 1
+  },
+  {
+    "level": "A1",
+    "question": "I ___ a doctor. I work in a hospital.",
+    "options": ["is", "are", "am", "be"],
+    "correct_id": 2
+  },
+  {
+    "level": "A1",
+    "question": "How ___ do you go to the gym?",
+    "options": ["often", "always", "sometimes", "never"],
+    "correct_id": 0
+  },
+  {
+    "level": "A1",
+    "question": "We don't have ___ apples in the kitchen.",
+    "options": ["some", "any", "a", "much"],
+    "correct_id": 1
+  },
+  {
+    "level": "B1",
+    "question": "I'm interested ___ learning new languages.",
+    "options": ["on", "at", "in", "for"],
+    "correct_id": 2
+  },
+  {
+    "level": "B1",
+    "question": "You ___ smoke here. It's against the law.",
+    "options": ["mustn't", "don't have to", "couldn't", "needn't"],
+    "correct_id": 0
+  },
+  {
+    "level": "B1",
+    "question": "This book ___ by a famous author in 1920.",
+    "options": ["was written", "wrote", "has written", "is written"],
+    "correct_id": 0
+  },
+  {
+    "level": "B2",
+    "question": "I'm looking forward ___ you next week.",
+    "options": ["to see", "to seeing", "see", "seeing"],
+    "correct_id": 1
+  },
+  {
+    "level": "B2",
+    "question": "By next year, I ___ my university degree.",
+    "options": ["will finish", "will have finished", "finish", "am finishing"],
+    "correct_id": 1
+  },
+  {
+    "level": "B2",
+    "question": "I ___ my car repaired yesterday.",
+    "options": ["had", "did", "made", "got"],
+    "correct_id": 0
+  },
+  {
+    "level": "C1",
+    "question": "He was accused ___ stealing the money.",
+    "options": ["for", "with", "of", "about"],
+    "correct_id": 2
+  },
+  {
+    "level": "C1",
+    "question": "Supposing you ___ the lottery, what would you do?",
+    "options": ["win", "won", "had won", "would win"],
+    "correct_id": 1
+  },
+  {
+    "level": "C1",
+    "question": "I'd rather you ___ tell anyone about this.",
+    "options": ["don't", "won't", "didn't", "not"],
+    "correct_id": 2
+  },
+  {
+    "level": "B2",
+    "question": "The weather was ___ cold that the lake froze.",
+    "options": ["such", "so", "very", "too"],
+    "correct_id": 1
+  },
+  {
+    "level": "B1",
+    "question": "I've been living in this city ___ five years.",
+    "options": ["since", "for", "during", "ago"],
+    "correct_id": 1
+  },
+  {
+    "level": "A1",
+    "question": "___ you like to drink some tea?",
+    "options": ["Do", "Would", "Are", "Can"],
+    "correct_id": 1
+  }
+]
