@@ -1,10 +1,12 @@
-#task 2
+# task 2
 import os
+from cProfile import label
 from dotenv import load_dotenv
 import telebot
 import json
 from random import choice
 from text_to_speech import text_to_speech, speech_to_text
+import re
 
 load_dotenv()
 
@@ -15,6 +17,7 @@ BUTTON_IDIOMS = "New idioms"
 
 bot = telebot.TeleBot(TOKEN)
 
+
 def create_menu():
     keyboard = telebot.types.ReplyKeyboardMarkup(
         resize_keyboard=True)
@@ -23,6 +26,7 @@ def create_menu():
     keyboard.add(button_verbs, button_idioms)
 
     return keyboard
+
 
 def get_quiz_by_level(level):
     try:
@@ -55,16 +59,16 @@ def send_quiz_poll(chat_id, item):
 def handle_start(message):
     bot.send_message(
         message.chat.id,
-    "Привет, я бот, который поможет улучшить тебе английский язык! \n Мои команды:\n "
+        "Привет, я бот, который поможет улучшить тебе английский язык! \n Мои команды:\n "
         "/start - запуск бота\n"
         "/help - справка\n"
         "/quizeasy - тест для уровня A1\n"
         "/quizmedium - тест для уровня B1,B2\n"
         "/quizhard - тест для уровня C1\n"
-        "/pronunciation - отправь мне текст, чтобы узнать правильное произношение!\n",
-        reply_markup = create_menu()
-                        )
-
+        "/pronunciation - отправь мне текст на английском, чтобы узнать правильное произношение!\n"
+        "/Или отправь мне голосовое сообщение на английском и я выведу его текстом!",
+        reply_markup=create_menu()
+    )
 
 
 @bot.message_handler(commands=['quizeasy'])
@@ -95,6 +99,7 @@ def medium_quiz(message):
         )
     else:
         bot.reply_to(message, "Вопросы уровня B2 не найдены")
+
 
 @bot.message_handler(commands=['quizhard'])
 def hard_quiz(message):
@@ -173,7 +178,6 @@ def handle_button_anecdote(message):
     )
 
 
-
 @bot.message_handler(commands=['pronunciation'])
 def pronounce(message):
     args = message.text.split(maxsplit=1)
@@ -182,17 +186,20 @@ def pronounce(message):
         return bot.reply_to(message, "Напиши текст, например: /pronunciation Hello!")
 
     text_to_say = args[1]
+    if bool(re.search('[а-яА-Я]', text_to_say)):
+        return bot.reply_to(message, "Ошибка! Пожалуйста, вводи текст только на английском языке.")
     user_id = message.chat.id
 
     audio_file = text_to_speech(text_to_say, user_id)
     try:
-       with open(audio_file, "rb") as f:
-           bot.send_audio(message.chat.id, audio=f, caption="Произношение")
+        with open(audio_file, "rb") as f:
+            bot.send_audio(message.chat.id, audio=f, caption="Произношение")
     except Exception as e:
         bot.send_message(message.chat.id, f"Ошибка при отправке: {e}")
     finally:
         if os.path.exists(audio_file):
             os.remove(audio_file)
+
 
 @bot.message_handler(content_types=['voice'])
 def voice_to_text(message):
@@ -203,10 +210,14 @@ def voice_to_text(message):
     with open(ogg_filename, "wb") as f:
         f.write(downloaded_bytes)
     text = speech_to_text(ogg_filename)
-    bot.send_message(chat_id, text=f"Вы сказали: {text}")
+    if bool(re.search('[а-яА-Я]', text)):
+        bot.send_message(chat_id, text="Я услышал русскую речь. Пожалуйста, говорите на английском! 🇬🇧")
+    else:
+        bot.send_message(chat_id, text=f"Вы сказали: {text}")
 
     if os.path.exists(ogg_filename):
         os.remove(ogg_filename)
+
 
 @bot.message_handler(content_types=['text'])
 def handle_text(message):
@@ -214,5 +225,6 @@ def handle_text(message):
         message.chat.id,
         "Я вас не понял, используйте команды /start или /help"
     )
+
 
 bot.infinity_polling()
