@@ -28,8 +28,6 @@ def filter_text(file_path, level):
             yield current_block
 
 
-
-
 def group_repeating(data):
     if not data:
         return
