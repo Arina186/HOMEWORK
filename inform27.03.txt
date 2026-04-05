@@ -1,0 +1,9 @@
+[INFO] dfghjkl
+       ghjkfghj
+[WARNING] sdfghjkl
+          fghjklgfd
+[ERROR] dfghjkmgh
+[INFO] rtyuikjhgf
+       ertyuj
+[ERROR] lkmjnbv
+[WARNING] fghjhgfdsder
