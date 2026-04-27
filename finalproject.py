@@ -31,7 +31,7 @@ def create_menu():
     return keyboard
 
 
-@bot.message_handler(commands=['start'])
+@bot.message_handler(commands=['start', 'help'])
 def start(message):
     # Подключаемся к базе и регистрируем пользователя
     with database.connect_db() as conn:
@@ -39,7 +39,14 @@ def start(message):
 
     bot.send_message(
         message.chat.id,
-        f"Привет, {message.from_user.first_name}! Я помогу тебе следить за гардеробом.",
+        f"Привет, {message.from_user.first_name}! 👋\n\n"
+        f"Забудь о проблеме «нечего надеть» и лишних тратах — твой гардероб теперь под полным контролем!\n\n"
+        f"С помощью кнопок:\n"
+        f"Добавляй обновки через ➕ <b>Добавить вещь</b>\n"
+        f"Наводи порядок в разделе 👗 <b>Мой гардероб</b>\n"
+        f"Контролируй бюджет в 📊 <b>Тратах</b> и изучай 📈 <b>Аналитику</b>\n"
+        f"Нет времени на сборы? Жми 🎲 <b>Составить образ</b> — я всё подберу за тебя!\n\n"
+        f"Нажимай ✅ <b>Надеть сегодня</b> при каждом выходе, чтобы узнать реальную цену вещи!\n", parse_mode='HTML',
         reply_markup=create_menu()
     )
 
