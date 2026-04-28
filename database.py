@@ -1,12 +1,13 @@
 import psycopg2
 from psycopg2 import sql
-
-
+from dotenv import load_dotenv
+import os
+load_dotenv()
 def connect_db():
     conn = psycopg2.connect(
         dbname="clothes_database",
         user="postgres",
-        password="123456",
+        password=os.getenv("DB_PASSWORD"),
         host="localhost",
         port="5432"
     )
